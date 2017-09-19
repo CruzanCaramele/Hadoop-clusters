@@ -1,7 +1,8 @@
 {
 	"variables"	:
 	{
-		"ami_name"       : "ambari-server",            
+		"ami_name"       : "ambari-server",
+		"username"		 : "ubuntu",            
 		"aws_region"	 : "{{env `region`}}",
 		"source_ami"     : "ami-44e10d3e",
 		"instance_type"  : "m3.large",
@@ -19,7 +20,8 @@
 		"source_ami"     : "{{ user `source_ami` }}",
 		"access_key"     : "{{ user `aws_access_key` }}",
 		"secret_key"     : "{{ user `aws_secret_key` }}",
-		"instance_type"  : "{{ user `instance_type` }}", 
+		"ssh_username"   : "{{ user `username` }}",
+		"instance_type"  : "{{ user `instance_type` }}"
 	}                    
                              
 	],                          
@@ -30,13 +32,19 @@
 	{                          
 		"type"           : "file",
 		"source"         : "scripts/rc.local",
-		"destination"    : "/etc/rc.local"
+		"destination"    : "/tmp/rc.local"
+	},
+
+	{
+		"type"			 : "shell",
+		"inline"         : ["mv /tmp/rc.local /etc/rc.local"],
+		"execute_command": "{{ .Vars }} sudo  -E -S bash -c '{{ .Path }}'"
 	},
 
 	{
 		"type"           : "shell",
 		"script"         : "scripts/ntp.sh",
-		"execute_command": "{{ .Vars }} sudo  -E -S bash -c '{{ .Path }}'",
+		"execute_command": "{{ .Vars }} sudo  -E -S bash -c '{{ .Path }}'"
 	},					 	
 
 	{                    					  
