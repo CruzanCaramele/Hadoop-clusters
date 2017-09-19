@@ -29,7 +29,20 @@
                                
 	{                          
 		"type"           : "file",
-		"source"         : "scripts/"
+		"source"         : "scripts/rc.local",
+		"destination"    : "/etc/rc.local"
+	},
+
+	{
+		"type"           : "shell",
+		"script"         : "scripts/ntp.sh",
+		"execute_command": "{{ .Vars }} sudo  -E -S bash -c '{{ .Path }}'",
+	},					 	
+
+	{                    					  
+		"type"			 : "shell",
+		"scripts"		 : "scripts/ambari-install.sh",
+		"execute_command": "{{ .Vars }} sudo  -E -S bash -c '{{ .Path }}'"
 	}
 
 	]
