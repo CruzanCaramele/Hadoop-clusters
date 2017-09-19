@@ -10,5 +10,5 @@ apt-get update -y && apt-get dist-upgrade -y
 
 # Install Ambari server
 apt-get install -y ambari-server
-ambari-server setup --slient
+ambari-server setup -s
 ambari-server start
