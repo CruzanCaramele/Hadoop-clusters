@@ -1,7 +1,8 @@
 {
 	"variables"	:
 	{
-		"ami_name"       : "ambari-node",            
+		"ami_name"       : "ambari-node",
+		"username"       : "ubuntu",            
 		"aws_region"	 : "{{env `aws_region`}}",
 		"source_ami"     : "ami-44e10d3e",
 		"instance_type"  : "m3.large",
@@ -19,6 +20,7 @@
 		"source_ami"     : "{{ user `source_ami` }}",
 		"access_key"     : "{{ user `aws_access_key` }}",
 		"secret_key"     : "{{ user `aws_secret_key` }}",
+		"ssh_username"   : "{{ user `username`}}",
 		"instance_type"  : "{{ user `instance_type` }}"
 	}                    
                              
