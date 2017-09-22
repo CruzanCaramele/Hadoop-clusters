@@ -1,2 +1,4 @@
 *.pem
 hadoop
+terraform.tfvars
+terraform.tfstate
