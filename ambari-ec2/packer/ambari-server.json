@@ -3,7 +3,7 @@
 	{
 		"ami_name"       : "ambari-server",
 		"username"		 : "ubuntu",            
-		"aws_region"	 : "{{env `region`}}",
+		"aws_region"	 : "{{env `aws_region`}}",
 		"source_ami"     : "ami-44e10d3e",
 		"instance_type"  : "m3.large",
 		"aws_access_key" : "{{env `access_key`}}",
