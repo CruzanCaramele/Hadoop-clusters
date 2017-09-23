@@ -49,7 +49,7 @@ variable "acl_cidr_block" {
   description = "cidr block for acl"
 }
 
-variable "public_subnet_cidr" {
+variable "public_subnet_cidrs" {
   type        = "string"
   description = "cidr range for public subnet group"
 }
