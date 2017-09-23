@@ -24,7 +24,7 @@ variable "availability_zones" {
   description = "vpc availability zones"
 }
 
-variable "cidr_block" {
+variable "vpc_cidr_block" {
   type        = "string"
   description = "vpc cidr range"
 }
