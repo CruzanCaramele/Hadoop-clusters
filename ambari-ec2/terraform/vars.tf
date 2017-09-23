@@ -19,11 +19,6 @@ variable "aws_secret_key" {
 #--------------------------------------------------------------
 # VPC and Networking Variables 
 #--------------------------------------------------------------
-variable "lifecycle" {
-  type        = "string"
-  description = "resources lifecycle"
-}
-
 variable "cidr_block" {
   type        = "string"
   description = "vpc cidr range"
