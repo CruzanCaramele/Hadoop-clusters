@@ -105,6 +105,39 @@ resource "aws_network_acl" "ambari-acl" {
 #--------------------------------------------------------------
 # Subnets
 #--------------------------------------------------------------
+resource "aws_subnet" "public-ambari-subnet" {
+    vpc_id                      = "${aws_vpc.ambari-vpc.id}"
+    cidr_block                  = "${element(split(",", var.public_cidrs), count.index)}"
+    availability_zone           = "${element(split(",", var.availability_zones), count.index)}"
+    map_public_ip_on_launch     = true
+
+    tags    {
+        Name                    = "public-ambari-subnet"
+    }
+
+    lifecycle   {
+        create_before_destroy   = true
+    }
+}
+
+resource "aws_route_table_association" "public-ambari-route-association" {
+    subnet_id                   = "${aws_subnet.public-ambari-subnet.id}"
+    route_table_id              = "${aws_route_table.public-ambari-route-table.id}"
+
+    tags    {
+        Name                    = "public-ambari-route-association"
+    }
+
+    lifecycle   {
+        create_before_destroy   = true
+    }
+
+}
+
+#--------------------------------------------------------------
+# Security Groups
+#--------------------------------------------------------------
+
 
 
 
