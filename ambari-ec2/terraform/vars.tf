@@ -19,6 +19,11 @@ variable "aws_secret_key" {
 #--------------------------------------------------------------
 # VPC and Networking Variables 
 #--------------------------------------------------------------
+variable "availability_zones" {
+  type        = "string"
+  description = "vpc availability zones"
+}
+
 variable "cidr_block" {
   type        = "string"
   description = "vpc cidr range"
@@ -29,6 +34,11 @@ variable "dns_support" {
   description = "support for dns in vpc"
 }
 
+variable "public_cidr" {
+  type        = "string"
+  description = "route to internet"
+}
+
 variable "dns_hostnames" {
   type        = "string"
   description = "support for dns hostnames in vpc"
@@ -37,4 +47,9 @@ variable "dns_hostnames" {
 variable "acl_cidr_block" {
   type        = "string"
   description = "cidr block for acl"
+}
+
+variable "public_subnet_cidr" {
+  type        = "string"
+  description = "cidr range for public subnet group"
 }
