@@ -66,3 +66,8 @@ variable "ambari_server_instance" {
   type        = "string"
   description = "server instance type"
 }
+
+variable "ambari_server_zone" {
+  type        = "string"
+  description = "az to launch the ambari server in"
+}
