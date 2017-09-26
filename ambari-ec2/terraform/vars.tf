@@ -53,3 +53,16 @@ variable "public_subnet_cidrs" {
   type        = "string"
   description = "cidr range for public subnet group"
 }
+
+#--------------------------------------------------------------
+# Instance Variables
+#--------------------------------------------------------------
+variable "ambari_server_ami" {
+  type        = "string"
+  description = "pre-baked ami from packer build"
+}
+
+variable "ambari_server_instance" {
+  type        = "string"
+  description = "server instance type"
+}
