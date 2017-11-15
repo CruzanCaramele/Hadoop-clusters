@@ -54,10 +54,10 @@ variable "public_subnet_cidrs" {
   description = "cidr range for public subnet group"
 }
 
-# variable "ambari_server_sec_group" {
-#   type = "string"
-#   description = "security group for ambari server"
-# }
+variable "ssh_key_name" {
+  type        = "string"
+  description = "key pair name"
+}
 
 #--------------------------------------------------------------
 # Instance Variables
@@ -75,4 +75,19 @@ variable "ambari_server_instance" {
 variable "ambari_server_zone" {
   type        = "string"
   description = "az to launch the ambari server in"
+}
+
+variable "ebs_variable" {
+  type        = "string"
+  description = "ebs optimized"
+}
+
+variable "volume_type" {
+  type        = "string"
+  description = "volume type"
+}
+
+variable "volume_size" {
+  type        = "string"
+  description = "volume size"
 }
