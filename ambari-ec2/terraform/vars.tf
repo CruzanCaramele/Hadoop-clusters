@@ -54,6 +54,11 @@ variable "public_subnet_cidrs" {
   description = "cidr range for public subnet group"
 }
 
+# variable "ambari_server_sec_group" {
+#   type = "string"
+#   description = "security group for ambari server"
+# }
+
 #--------------------------------------------------------------
 # Instance Variables
 #--------------------------------------------------------------
